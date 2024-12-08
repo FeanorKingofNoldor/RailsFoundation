@@ -1,0 +1,103 @@
+<div class="min-h-screen" style="background: radial-gradient(circle, var(--color-background-center), var(--color-background-edge))">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center space-y-8">
+      <h1 class="text-4xl font-bold text-text-primary">Welcome to Foundation</h1>
+      
+      <%# Primary Buttons - All Sizes %>
+      <div class="space-y-4">
+        <h2 class="text-xl text-text-primary">Primary Buttons</h2>
+        <div class="flex items-center justify-center gap-4">
+          <%= component("Button", variant: :primary, size: :sm) { "Small Primary" } %>
+          <%= component("Button", variant: :primary, size: :md) { "Medium Primary" } %>
+          <%= component("Button", variant: :primary, size: :lg) { "Large Primary" } %>
+        </div>
+      </div>
+
+      <%# Secondary Buttons - All Sizes %>
+      <div class="space-y-4">
+        <h2 class="text-xl text-text-primary">Secondary Buttons</h2>
+        <div class="flex items-center justify-center gap-4">
+          <%= component("Button", variant: :secondary, size: :sm) { "Small Secondary" } %>
+          <%= component("Button", variant: :secondary, size: :md) { "Medium Secondary" } %>
+          <%= component("Button", variant: :secondary, size: :lg) { "Large Secondary" } %>
+        </div>
+      </div>
+
+      <%# Disabled States %>
+      <div class="space-y-4">
+        <h2 class="text-xl text-text-primary">Disabled Buttons</h2>
+        <div class="flex items-center justify-center gap-4">
+          <%= component("Button", variant: :primary, disabled: true) { "Disabled Primary" } %>
+          <%= component("Button", variant: :secondary, disabled: true) { "Disabled Secondary" } %>
+        </div>
+      </div>
+
+      <%# With Icons %>
+      <div class="space-y-4">
+        <h2 class="text-xl text-text-primary">Buttons with Icons</h2>
+        <div class="flex items-center justify-center gap-4">
+          <%= component("Button", variant: :primary) do %>
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            Add Item
+          <% end %>
+          
+          <%= component("Button", variant: :secondary) do %>
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            </svg>
+            Edit
+          <% end %>
+        </div>
+      </div>
+
+<%# Alerts %>
+      <div class="space-y-4">
+        <h2 class="text-xl text-text-primary">Alerts</h2>
+        <div class="space-y-4">
+          <%= component("Alert", variant: :info, dismissible: true) do %>
+            <div class="flex flex-col">
+              <div class="font-medium">Info Alert</div>
+              <p class="text-sm">This is an information message that you might want to know about.</p>
+            </div>
+          <% end %>
+
+          <%= component("Alert", variant: :success, dismissible: true) do %>
+            <div class="flex flex-col">
+              <div class="font-medium">Success Alert</div>
+              <p class="text-sm">Your action was completed successfully!</p>
+            </div>
+          <% end %>
+
+          <%= component("Alert", variant: :warning, dismissible: true) do %>
+            <div class="flex flex-col">
+              <div class="font-medium">Warning Alert</div>
+              <p class="text-sm">Warning! This action might have consequences.</p>
+            </div>
+          <% end %>
+
+          <%= component("Alert", variant: :error, dismissible: true) do %>
+            <div class="flex flex-col">
+              <div class="font-medium">Error Alert</div>
+              <p class="text-sm">Error! Something went wrong while processing your request.</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <%= component("ThemeToggle") %>
+      <% if user_signed_in? %>
+        <p class="mt-2 text-text-primary">Welcome back, <%= current_user.email %></p>
+        <%= button_to 'Sign Out', 
+                     destroy_user_session_path, 
+                     method: :delete, 
+                     class: 'mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-background-primary bg-primary hover:bg-primary-hover' %>
+      <% else %>
+        <%= link_to 'Sign In', 
+                    new_user_session_path, 
+                    class: 'mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-background-primary bg-primary hover:bg-primary-hover' %>
+      <% end %>
+    </div>
+  </div>
+</div>

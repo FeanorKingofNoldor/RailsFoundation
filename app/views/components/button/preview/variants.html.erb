@@ -1,0 +1,17 @@
+<%# app/views/components/button/preview/variants.html.erb %>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="text-center space-y-8">
+    <% variants.each do |variant| %>
+      <div class="space-y-4">
+        <h2 class="text-xl text-text-primary"><%= variant.to_s.titleize %> Buttons</h2>
+        <div class="flex items-center justify-center gap-4">
+          <% sizes.each do |size| %>
+            <%= render Button::Component.new(variant: variant, size: size) do %>
+              <%= size.to_s.upcase %> Button
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

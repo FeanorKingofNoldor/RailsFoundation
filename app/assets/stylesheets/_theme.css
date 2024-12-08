@@ -1,0 +1,35 @@
+:root {
+    /* Light theme defaults */
+    --color-primary: #7928CA;
+    --color-primary-hover: #b698da;
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #4B5563;
+    --color-background-primary: #F9FAFB;
+    --color-background-secondary: #E5E7EB;
+    --color-background-center: #F9FAFB;
+    --color-background-edge: #e459c1;
+    
+    /* Add more custom colors as needed */
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
+    --color-info: #3B82F6;
+  }
+  
+  .dark {
+    /* Dark theme overrides */
+    --color-primary: #7928CA;
+    --color-primary-hover: #35076d;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #D1D5DB;
+    --color-background-primary: #0F172A;
+    --color-background-secondary: #1E293B;
+    --color-background-center: #581743;
+    --color-background-edge: #1E293B;
+    
+    /* Dark versions of status colors */
+    --color-success: #059669;
+    --color-warning: #D97706;
+    --color-error: #DC2626;
+    --color-info: #2563EB;
+  }

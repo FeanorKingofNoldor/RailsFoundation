@@ -1,0 +1,42 @@
+<%# preview/behaviors.html.erb %>
+<div class="space-y-4">
+  <%# Regular button with click handler %>
+  <%= component("Button", 
+                variant: :primary,
+                data: { 
+                  controller: "example",
+                  action: "click->example#handleClick"
+                }) do %>
+    Click Handler
+  <% end %>
+
+  <%# Link button %>
+  <%= component("Button", 
+                variant: :primary,
+                href: "/some-path") do %>
+    Link Button
+  <% end %>
+
+  <%# Form submit button %>
+  <form class="flex gap-4">
+    <%= component("Button", 
+                  variant: :secondary,
+                  type: 'reset') do %>
+      Reset
+    <% end %>
+
+    <%= component("Button", 
+                  variant: :primary,
+                  type: 'submit') do %>
+      Submit
+    <% end %>
+  </form>
+
+  <%# Delete action button %>
+  <%= component("Button", 
+                variant: :secondary,
+                href: "/some-resource",
+                method: :delete) do %>
+    Delete Resource
+  <% end %>
+</div>

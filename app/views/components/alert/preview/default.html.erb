@@ -1,0 +1,15 @@
+<%# preview/default.html.erb %>
+<div class="space-y-4">
+  <% alerts.each do |alert| %>
+    <%= render Alert::Component.new(variant: alert[:variant], dismissible: true) do %>
+      <div class="flex flex-col">
+        <div class="font-medium text-base">
+          <%= alert[:variant].to_s.titleize %> Alert
+        </div>
+        <div class="text-sm opacity-90">
+          <%= alert[:message] %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

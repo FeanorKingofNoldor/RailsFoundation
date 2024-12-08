@@ -1,0 +1,14 @@
+<% if href.present? %>
+  <%= link_to(href, processed_link_options) do %>
+    <%= content %>
+  <% end %>
+<% else %>
+  <button 
+    type="<%= type.presence || 'button' %>"
+    class="<%= style(variant: processed_variant, size: processed_size) %>"
+    <%= "disabled" if disabled %>
+    <%= data.presence&.map { |key, value| "data-#{key}=#{value}" }&.join(" ") %>
+  >
+    <%= content %>
+  </button>
+<% end %>

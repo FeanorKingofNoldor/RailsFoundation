@@ -1,0 +1,17 @@
+<button 
+  type="button"
+  class="<%= style() %>"
+  data-controller="<%= component_identifier("ThemeToggle") %>"
+  data-action="click-><%= component_identifier("ThemeToggle") %>#toggle"
+  aria-label="Toggle theme"
+>
+  <%# Sun icon for dark mode (shows when dark mode is active) %>
+  <%= image_tag "icons/sun.svg", 
+                class: "h-5 w-5 hidden dark:block text-text-primary",
+                aria: { hidden: true } %>
+  
+  <%# Moon icon for light mode (shows when light mode is active) %>
+  <%= image_tag "icons/moon.svg", 
+                class: "h-5 w-5 block dark:hidden text-text-primary",
+                aria: { hidden: true } %>
+</button>
