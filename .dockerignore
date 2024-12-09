@@ -41,7 +41,27 @@
 
 # Ignore development files
 /.devcontainer
+/.idea
+/.vscode
 
 # Ignore Docker-related files
 /.dockerignore
 /Dockerfile*
+/docker-compose*.yml
+
+# Testing
+/spec
+/test
+/coverage
+
+# Documentation
+/README.md
+/CHANGELOG.md
+/LICENSE
+/*.md
+
+# Cache and temp files
+*.log
+.DS_Store
+*.swp
+*.swo

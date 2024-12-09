@@ -86,6 +86,26 @@
         </div>
       </div>
 
+      <!-- Hero content section -->
+      <%= component("Hero", 
+      announcement_text: "Announcing our next round of funding.",
+      announcement_link: "/funding-announcement",
+      title: "Data to enrich your online business",
+      description: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.",
+      primary_button: "Get started",  
+      secondary_button: "Learn more") %>
+
+
+
+        <%= component("Dropdown", 
+        text: "Account", 
+        items: [
+          { text: "Settings", href: "#" },
+          { text: "Profile", href: "#" },
+          { text: "Sign out", href: "#", method: :post }
+        ]) %>
+
+
       <%= component("ThemeToggle") %>
       <% if user_signed_in? %>
         <p class="mt-2 text-text-primary">Welcome back, <%= current_user.email %></p>
