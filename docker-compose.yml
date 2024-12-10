@@ -14,15 +14,18 @@ services:
     volumes:
       - .:/app
       - node_modules:/app/node_modules
+      - bundle:/usr/local/bundle
     ports:
       - "3000:3000"
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432
       RAILS_ENV: development
       POSTGRES_PASSWORD: postgres
+      BUNDLE_GET__RAILSDESIGNER__COM: bWF4aW1pbGlhbi5odWV0aG1heXJAZ21haWwuY29t
     depends_on:
       - db
 
 volumes:
   postgres_data:
   node_modules:
+  bundle:

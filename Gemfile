@@ -9,6 +9,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
+gem "tailwind_merge", "~> 0.13.3"
 
 # Authentication/Authorization
 gem 'devise'
@@ -16,9 +17,12 @@ gem 'pundit'
 
 # Frontend
 gem 'tailwindcss-rails'
+gem "primer_view_components"
 gem "view_component", "~> 3.20"
 gem "view_component-contrib", "~> 0.2.3"
 gem "dry-initializer", "~> 3.1"
+gem "rails_icons", "~> 1.0.0"
+
 
 # Background Processing & Caching
 gem "solid_queue"
@@ -50,4 +54,8 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem "tailwind_merge", "~> 0.13.3"
+group :development do
+  gem "lookbook", ">= 2.3.4"
+end
+
+

@@ -1,14 +1,4 @@
 #!/usr/bin/env node
-// Requires esbuild 0.17+
-//
-// Esbuild is configured with 3 modes:
-//
-// `yarn build` - Build JavaScript and exit
-// `yarn build --watch` - Rebuild JavaScript on change
-// `yarn build --reload` - Reloads page when views, JavaScript, or stylesheets change
-//
-// Minify is enabled when "RAILS_ENV=production"
-// Sourcemaps are enabled in non-production environments
 
 import * as esbuild from "esbuild"
 import path from "path"
@@ -24,8 +14,10 @@ const entryPoints = [
 const watchDirectories = [
   "./app/javascript/**/*.js",
   "./app/views/**/*.html.erb",
-  "./app/assets/builds/**/*.css", // Wait for cssbundling changes
+  "./app/assets/builds/**/*.css",
 ]
+
+// Updated config without the problematic resolve option
 const config = {
   absWorkingDir: path.join(process.cwd(), "app/javascript"),
   bundle: true,
@@ -33,11 +25,17 @@ const config = {
   minify: process.env.RAILS_ENV == "production",
   outdir: path.join(process.cwd(), "app/assets/builds"),
   plugins: [rails()],
-  sourcemap: process.env.RAILS_ENV != "production"
+  sourcemap: process.env.RAILS_ENV != "production",
+  // Add loader for Primer
+  loader: {
+    '.js': 'jsx',
+    '.svg': 'text',
+  },
+  // Add any needed external packages
+  external: ['@primer/view-components']
 }
 
 async function buildAndReload() {
-  // Foreman & Overmind assign a separate PORT for each process
   const port = parseInt(process.env.PORT)
   const context = await esbuild.context({
     ...config,
@@ -46,7 +44,6 @@ async function buildAndReload() {
     }
   })
 
-  // Reload uses an HTTP server as an even stream to reload the browser
   http
     .createServer((req, res) => {
       return clients.push(

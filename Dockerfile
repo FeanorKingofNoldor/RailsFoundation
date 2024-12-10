@@ -1,4 +1,3 @@
-# Dockerfile
 FROM ruby:3.3.0-slim
 
 # Install essential Linux packages
@@ -21,23 +20,21 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
 
 WORKDIR /app
 
-# Install Ruby dependencies
+# Copy dependency files
 COPY Gemfile Gemfile.lock ./
-RUN bundle install
-
-# Install Node dependencies
 COPY package.json yarn.lock ./
-RUN yarn install
 
 # Copy application code
 COPY . .
-
-# Build assets
-RUN yarn build && yarn build:css
 
 # Add script to wait for database
 COPY .docker/wait-for-it.sh /usr/bin/wait-for-it
 RUN chmod +x /usr/bin/wait-for-it
 
+# Add entrypoint script
+COPY .docker/entrypoint.sh /usr/bin/entrypoint
+RUN chmod +x /usr/bin/entrypoint
+
 EXPOSE 3000
+ENTRYPOINT ["/usr/bin/entrypoint"]
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

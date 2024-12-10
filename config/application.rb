@@ -12,6 +12,8 @@ require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
+require "view_component"
+require "primer/view_components"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -22,6 +24,7 @@ module Foundation
   class Application < Rails::Application
     config.autoload_paths << Rails.root.join("app", "views", "components")
     config.view_component.preview_paths << Rails.root.join("app", "views", "components")
+    config.view_component.preview_paths << Pathname.new(Gem.loaded_specs['primer_view_components'].full_gem_path).join("previews")
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 

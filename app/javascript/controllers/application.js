@@ -1,6 +1,9 @@
+// app/javascript/application.js
 import { Application } from "@hotwired/stimulus"
+import { registerPrimer } from "@primer/view-components"
 
 const application = Application.start()
+registerPrimer(application)
 
 // Configure Stimulus development experience
 application.debug = false
