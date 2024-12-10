@@ -1,16 +1,4 @@
 GEM
-  remote: https://bWF4aW1pbGlhbi5odWV0aG1heXJAZ21haWwuY29t@get.railsdesigner.com/private/
-  specs:
-    rails_designer (1.9.0)
-      importmap-rails (~> 2.0)
-      propshaft (~> 1.0)
-      rails (>= 7.0, < 8.1)
-      stimulus-rails (~> 1.0)
-      tailwindcss-rails (~> 3.0)
-      turbo-rails (~> 2.0)
-      view_component (~> 3.0)
-
-GEM
   remote: https://rubygems.org/
   specs:
     actioncable (7.1.5)
@@ -154,10 +142,6 @@ GEM
     htmlentities (4.3.4)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.0.3)
-      actionpack (>= 6.0.0)
-      activesupport (>= 6.0.0)
-      railties (>= 6.0.0)
     io-console (0.8.0)
     irb (1.14.1)
       rdoc (>= 4.0.0)
@@ -446,7 +430,6 @@ DEPENDENCIES
   puma (>= 5.0)
   pundit
   rails (~> 7.1.5)
-  rails_designer (~> 1.9.0)!
   rails_icons (~> 1.0.0)
   rspec-rails
   rubocop-rails-omakase
