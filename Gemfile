@@ -9,7 +9,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
-gem "tailwind_merge", "~> 0.13.3"
+gem "tailwind_merge", "~> 0.14.0"
 
 # Authentication/Authorization
 gem 'devise'
