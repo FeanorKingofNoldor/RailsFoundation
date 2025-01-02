@@ -20,7 +20,7 @@ gem 'tailwindcss-rails'
 gem "primer_view_components"
 gem "view_component", "~> 3.20"
 gem "view_component-contrib", "~> 0.2.3"
-gem "dry-initializer", "~> 3.1"
+gem "dry-initializer", "~> 3.2"
 gem "rails_icons", "~> 1.0.0"
 
 
